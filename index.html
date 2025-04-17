@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rishu's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #71C8FF;
-      --light: #ffffff;
-      --dark: #0f0f0f;
+      --primary-color: #71C8FF;
+      --bg-color: #ffffff;
+      --text-color: #000000;
+    }
+
+    body.dark-mode {
+      --primary-color: #ffffff;
+      --bg-color: #121212;
+      --text-color: #ffffff;
     }
 
     * {
@@ -18,177 +25,132 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
-      transition: background-color 0.3s, color 0.3s;
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: var(--light);
-      color: var(--dark);
-    }
-
-    body.dark-mode {
-      background-color: var(--dark);
-      color: var(--light);
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
 
     header {
-      background-color: var(--primary);
       padding: 2rem;
+      text-align: center;
+    }
+
+    .intro {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 4rem 2rem;
     }
 
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background-color: white;
-      overflow: hidden;
-      border: 4px solid #fff;
-    }
-
-    .profile-pic img {
-      width: 100%;
-      height: 100%;
+    .intro img {
+      width: 200px;
+      height: 200px;
       object-fit: cover;
-    }
-
-    .toggle-btn {
-      background: none;
-      border: 2px solid white;
-      color: white;
-      padding: 0.7rem 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
+      border-radius: 50%;
+      border: 4px solid var(--primary-color);
     }
 
     section {
       padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    h1, h2 {
-      font-size: 3rem;
-      color: var(--primary);
-    }
-
-    p {
-      font-size: 1.3rem;
-      margin: 1rem auto;
-      max-width: 700px;
-    }
-
-    .socials a {
-      margin: 0 10px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: bold;
+      max-width: 900px;
+      margin: auto;
     }
 
     .videos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .video-box {
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
 
     iframe {
       width: 100%;
-      height: 250px;
+      height: 200px;
+      border: none;
     }
 
-    .hire-section {
-      background-color: var(--primary);
-      color: white;
-      padding: 4rem 2rem;
+    .btn-darkmode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--primary-color);
+      color: var(--bg-color);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
-    .hire-section.dark-mode {
-      background-color: var(--dark);
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
     }
 
-    @media (max-width: 768px) {
-      h1, h2 {
-        font-size: 2rem;
-      }
-      iframe {
-        height: 200px;
-      }
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
-<body>
 
-  <header>
-    <div class="profile-pic" data-aos="fade-right">
-      <img src="your-profile.jpg" alt="My Profile" />
-    </div>
-    <button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
+<body>
+  <button class="btn-darkmode" onclick="toggleDarkMode()">Dark Mode</button>
+
+  <header class="intro" data-aos="fade-down">
+    <img src="your-pfp.jpg" alt="Profile Picture">
+    <h1>Hi, I'm Rishu</h1>
+    <p>Video Editor | Motion Graphics Specialist</p>
   </header>
 
   <section data-aos="fade-up">
-    <h1>Hi, I'm Rishu</h1>
-    <p>I create visuals that speak louder than words. Welcome to my video editing portfolio.</p>
-    <div class="socials">
-      <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
-      <a href="https://twitter.com/yourusername" target="_blank">X</a>
-      <a href="mailto:yourname@gmail.com">Gmail</a>
-      <a href="https://youtube.com/yourchannel" target="_blank">YouTube</a>
-    </div>
-  </section>
-
-  <section data-aos="fade-up">
     <h2>About Me</h2>
-    <p>I'm a passionate video editor who blends motion, rhythm, and emotion into powerful visuals. Every cut I make tells a story.</p>
+    <p>I create visually captivating and emotionally engaging edits that breathe life into stories. With over 3 years of experience in motion graphics and documentary editing, I blend creativity with precision to deliver powerful results.</p>
   </section>
 
   <section data-aos="fade-up">
     <h2>My Work</h2>
     <div class="videos">
-      <div class="video-box" data-aos="fade-up">
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_1" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="video-box" data-aos="fade-up">
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_2" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="video-box" data-aos="fade-up">
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_3" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="video-box" data-aos="fade-up">
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_4" frameborder="0" allowfullscreen></iframe>
-      </div>
+      <iframe src="https://www.youtube.com/embed/xyz1" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/xyz2" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/xyz3" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/xyz4" allowfullscreen></iframe>
     </div>
   </section>
 
-  <section class="hire-section" data-aos="fade-up">
+  <section data-aos="fade-up">
     <h2>Why Hire Me?</h2>
-    <p>I'm not just a video editor. I'm a visual storyteller who understands pacing, emotion, and what grabs attention. Let’s build something unforgettable.</p>
+    <p>I don't just edit — I shape stories. My edits are tailored to your brand’s voice and crafted to hook audiences emotionally. You’ll receive timely delivery, transparent communication, and a partner who genuinely cares about your vision.</p>
   </section>
 
-  <section class="hire-section" data-aos="fade-up">
-    <h2>Hire Me</h2>
-    <p>Reach out via any platform above or send me a message. I’m excited to bring your story to life!</p>
+  <section data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <div class="social-icons">
+      <a href="https://instagram.com/yourusername" target="_blank"><img src="instagram-logo.png" alt="Instagram"></a>
+      <a href="https://youtube.com/yourchannel" target="_blank"><img src="youtube-logo.png" alt="YouTube"></a>
+      <a href="https://twitter.com/yourhandle" target="_blank"><img src="twitter-logo.png" alt="Twitter"></a>
+      <a href="mailto:youremail@gmail.com"><img src="gmail-logo.png" alt="Gmail"></a>
+    </div>
   </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
 
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
-      const hireSections = document.querySelectorAll('.hire-section');
-      hireSections.forEach(section => section.classList.toggle('dark-mode'));
     }
   </script>
-
 </body>
+
 </html>
