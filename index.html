@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishu's Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
@@ -27,24 +27,26 @@
     }
 
     body.dark-mode {
-      background-color: #0f0f0f;
-      color: #f1f1f1;
+      background-color: var(--dark);
+      color: var(--light);
     }
 
     header {
       background-color: var(--primary);
-      padding: 1.5rem 2rem;
+      padding: 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .profile-pic {
-      width: 60px;
-      height: 60px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       background-color: white;
       overflow: hidden;
+      border: 4px solid #fff;
     }
 
     .profile-pic img {
@@ -57,32 +59,38 @@
       background: none;
       border: 2px solid white;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.7rem 1.2rem;
       border-radius: 8px;
       cursor: pointer;
+      font-weight: bold;
     }
 
     section {
-      padding: 3rem 2rem;
+      padding: 4rem 2rem;
       text-align: center;
     }
 
-    h1 {
-      font-size: 2.5rem;
+    h1, h2 {
+      font-size: 3rem;
       color: var(--primary);
     }
 
     p {
-      font-size: 1.1rem;
-      margin-top: 1rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1.3rem;
+      margin: 1rem auto;
+      max-width: 700px;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .videos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
@@ -95,15 +103,25 @@
 
     iframe {
       width: 100%;
-      height: 200px;
+      height: 250px;
+    }
+
+    .hire-section {
+      background-color: var(--primary);
+      color: white;
+      padding: 4rem 2rem;
+    }
+
+    .hire-section.dark-mode {
+      background-color: var(--dark);
     }
 
     @media (max-width: 768px) {
-      h1 {
+      h1, h2 {
         font-size: 2rem;
       }
       iframe {
-        height: 180px;
+        height: 200px;
       }
     }
   </style>
@@ -112,19 +130,29 @@
 
   <header>
     <div class="profile-pic" data-aos="fade-right">
-      <!-- Replace src with your profile image -->
       <img src="your-profile.jpg" alt="My Profile" />
     </div>
     <button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
   </header>
 
   <section data-aos="fade-up">
-    <h1>Hello, I'm Rishu</h1>
-    <p>Welcome to my editing portfolio. I craft stories, moods, and motion — one frame at a time. Scroll to see my work.</p>
+    <h1>Hi, I'm Rishu</h1>
+    <p>I create visuals that speak louder than words. Welcome to my video editing portfolio.</p>
+    <div class="socials">
+      <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
+      <a href="https://twitter.com/yourusername" target="_blank">X</a>
+      <a href="mailto:yourname@gmail.com">Gmail</a>
+      <a href="https://youtube.com/yourchannel" target="_blank">YouTube</a>
+    </div>
   </section>
 
   <section data-aos="fade-up">
-    <h2 style="color: var(--primary);">My Work</h2>
+    <h2>About Me</h2>
+    <p>I'm a passionate video editor who blends motion, rhythm, and emotion into powerful visuals. Every cut I make tells a story.</p>
+  </section>
+
+  <section data-aos="fade-up">
+    <h2>My Work</h2>
     <div class="videos">
       <div class="video-box" data-aos="fade-up">
         <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_1" frameborder="0" allowfullscreen></iframe>
@@ -141,12 +169,24 @@
     </div>
   </section>
 
+  <section class="hire-section" data-aos="fade-up">
+    <h2>Why Hire Me?</h2>
+    <p>I'm not just a video editor. I'm a visual storyteller who understands pacing, emotion, and what grabs attention. Let’s build something unforgettable.</p>
+  </section>
+
+  <section class="hire-section" data-aos="fade-up">
+    <h2>Hire Me</h2>
+    <p>Reach out via any platform above or send me a message. I’m excited to bring your story to life!</p>
+  </section>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
 
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
+      const hireSections = document.querySelectorAll('.hire-section');
+      hireSections.forEach(section => section.classList.toggle('dark-mode'));
     }
   </script>
 
