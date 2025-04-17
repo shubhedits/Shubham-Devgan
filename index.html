@@ -2,109 +2,292 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rishu's Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishu Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary-color: #71C8FF;
+      --bg-color: #ffffff;
+      --text-color: #000000;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --primary-color: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .top-strip {
+      background-color: #71C8FF;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .search-bar input {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .dark-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 25px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 21px;
+      width: 21px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(25px);
+    }
+
+    header,
+    section {
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+      border: 2px solid var(--primary-color);
+      border-radius: 12px;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .intro img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid var(--primary-color);
+    }
+
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .thumbnail {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background-color: #ddd;
+    }
+
+    .testimonial-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial {
+      background-color: #f2f2f2;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem;
+      color: var(--text-color);
+      border-top: 1px solid var(--primary-color);
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 
 <body>
   <div class="top-strip">
     <div class="search-bar">
-      <input type="text" placeholder="Search...">
-      <button onclick="searchPortfolio()">
-        <img src="your-search-icon.png" alt="Search">
-      </button>
+      <input type="text" placeholder="Search..." />
+      <button>🔍</button>
     </div>
-    <label class="switch">
-      <input type="checkbox" id="mode-toggle">
-      <span class="slider"></span>
-    </label>
+    <div class="dark-switch">
+      <label class="switch">
+        <input type="checkbox" onclick="toggleDarkMode()">
+        <span class="slider"></span>
+      </label>
+    </div>
   </div>
 
-  <section id="about" data-aos="fade-up">
-    <h1>About Me</h1>
-    <p>Hello! I'm Rishu, a passionate editor and creative designer.</p>
+  <header class="intro" data-aos="fade-down">
+    <img src="your-pfp.jpg" alt="Profile Picture" />
+    <h1>Hey, I’m Rishu</h1>
+    <p>Video Editor / Motion Graphics Specialist</p>
+  </header>
+
+  <section data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I create visually captivating and emotionally engaging edits that breathe life into stories.</p>
   </section>
 
-  <section id="thumbnails" data-aos="fade-up">
-    <h2>My Thumbnails</h2>
-    <div class="grid">
-      <img src="img1.jpg" alt="Thumbnail 1">
-      <img src="img2.jpg" alt="Thumbnail 2">
-      <img src="img3.jpg" alt="Thumbnail 3">
-      <img src="img4.jpg" alt="Thumbnail 4">
-      <img src="img5.jpg" alt="Thumbnail 5">
-      <img src="img6.jpg" alt="Thumbnail 6">
-      <img src="img7.jpg" alt="Thumbnail 7">
-      <img src="img8.jpg" alt="Thumbnail 8">
+  <section data-aos="fade-up">
+    <h2>My Work</h2>
+    <div class="videos" data-aos="zoom-in">
+      <iframe src="https://www.youtube.com/embed/xyz1" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/xyz2" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/xyz3" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/xyz4" allowfullscreen></iframe>
     </div>
   </section>
 
-  <section id="videos" data-aos="fade-up">
-    <h2>Featured Videos</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <section data-aos="fade-up">
+    <h2>Thumbnail Designs</h2>
+    <div class="thumbnails">
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+    </div>
   </section>
 
-  <section id="testimonials" data-aos="fade-up">
-    <h2>Testimonials</h2>
-    <p>"Rishu is an amazing editor!" – Client A</p>
-    <p>"His designs are clean and impactful." – Client B</p>
+  <section data-aos="fade-up">
+    <h2>Why Hire Me?</h2>
+    <p>I shape stories that connect. Timely delivery, custom-crafted edits, and smooth communication.</p>
+    <p><strong>Don't trust me? Hear from them.</strong></p>
+    <div class="videos">
+      <iframe src="https://www.youtube.com/embed/testimonial1" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/testimonial2" allowfullscreen></iframe>
+    </div>
+    <div class="testimonial-section">
+      <div class="testimonial">@client1 – "Absolutely amazing editor! Gave my content life."</div>
+      <div class="testimonial">@client2 – "Fast, friendly, and creative. Highly recommend!"</div>
+    </div>
   </section>
 
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <a href="https://instagram.com/yourusername" target="_blank">
-      <img src="insta-icon.png" alt="Instagram">
-    </a>
+  <section data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <div class="social-icons">
+      <a href="https://instagram.com/yourusername" target="_blank"><img src="instagram-logo.png" alt="Instagram" /></a>
+      <a href="https://youtube.com/yourchannel" target="_blank"><img src="youtube-logo.png" alt="YouTube" /></a>
+      <a href="https://twitter.com/yourhandle" target="_blank"><img src="twitter-logo.png" alt="Twitter" /></a>
+      <a href="mailto:youremail@gmail.com"><img src="gmail-logo.png" alt="Gmail" /></a>
+    </div>
   </section>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <footer class="footer">&copy; 2025 Rishu. All rights reserved.</footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
-  </script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
 
-  <script>
-    function searchPortfolio() {
-      const input = document.querySelector('.search-bar input').value.toLowerCase();
-      let section = null;
-
-      if (input.includes("insta") || input.includes("instagram")) {
-        section = document.getElementById("contact");
-      } else if (input.includes("thumbnail") || input.includes("thumbnails") || input.includes("thumbnail designs")) {
-        section = document.getElementById("thumbnails");
-      } else if (input.includes("about") || input.includes("about me")) {
-        section = document.getElementById("about");
-      } else if (input.includes("contact")) {
-        section = document.getElementById("contact");
-      } else if (input.includes("work") || input.includes("projects") || input.includes("videos") || input.includes("video")) {
-        section = document.getElementById("videos");
-      }
-
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-        section.classList.add("highlight");
-        setTimeout(() => {
-          section.classList.remove("highlight");
-        }, 1500);
-      } else {
-        alert("Sorry, couldn't find anything for that.");
-      }
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
     }
   </script>
-
-  <style>
-    .highlight {
-      animation: glow 1.5s ease-in-out;
-    }
-
-    @keyframes glow {
-      0% { box-shadow: 0 0 0px #ffb3ff; }
-      50% { box-shadow: 0 0 25px #ffb3ff; }
-      100% { box-shadow: 0 0 0px #ffb3ff; }
-    }
-  </style>
 </body>
 
 </html>
