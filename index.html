@@ -35,7 +35,6 @@
     }
 
     .top-strip {
-      background-color: #71C8FF;
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
@@ -43,19 +42,32 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      display: none; /* Removed blue strip */
     }
 
-    .dark-switch {
+    .dark-switch,
+    .google-drive-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .switch,
+    .google-drive-btn img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
     .switch {
-      position: relative;
-      display: inline-block;
-      width: 50px;
-      height: 25px;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 50%;
     }
 
     .switch input {
@@ -73,7 +85,7 @@
       bottom: 0;
       background-color: #ccc;
       transition: 0.4s;
-      border-radius: 25px;
+      border-radius: 50%;
     }
 
     .slider:before {
@@ -190,6 +202,10 @@
 
 <body>
   <div class="top-strip">
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." />
+      <button>🔍</button>
+    </div>
     <div class="dark-switch">
       <label class="switch">
         <input type="checkbox" onclick="toggleDarkMode()">
@@ -271,6 +287,12 @@
       document.body.classList.toggle("dark");
     }
   </script>
+
+  <!-- Google Drive Button -->
+  <div class="google-drive-btn">
+    <img src="your-google-drive-image.jpg" alt="Google Drive" />
+  </div>
+
 </body>
 
 </html>
