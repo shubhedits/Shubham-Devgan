@@ -68,15 +68,16 @@
 
     .thumbnails {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
 
     .thumbnail {
-      width: 100%;
-      padding-top: 100%;
       position: relative;
       border-radius: 10px;
+      height: auto;
+      aspect-ratio: 16/9;
+      width: 100%;
     }
 
     .thumbnail.outline {
@@ -152,6 +153,10 @@
   <section data-aos="fade-up">
     <h2>Thumbnail Designs</h2>
     <div class="thumbnails">
+      <div class="thumbnail outline"></div>
+      <div class="thumbnail filled"></div>
+      <div class="thumbnail outline"></div>
+      <div class="thumbnail filled"></div>
       <div class="thumbnail outline"></div>
       <div class="thumbnail filled"></div>
       <div class="thumbnail outline"></div>
