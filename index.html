@@ -14,6 +14,29 @@
       --text-color: #000000;
     }
 
+    <style>
+  body.dark {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --primary-color: #ffffff;
+  }
+
+  .dark-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    z-index: 999;
+    transition: background-color 0.3s, color 0.3s;
+  }
+</style>
+
     * {
       margin: 0;
       padding: 0;
