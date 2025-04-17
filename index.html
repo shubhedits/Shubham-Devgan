@@ -14,12 +14,6 @@
       --text-color: #000000;
     }
 
-    body.dark-mode {
-      --primary-color: #ffffff;
-      --bg-color: #121212;
-      --text-color: #ffffff;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -47,16 +41,16 @@
     }
 
     .intro img {
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: 250px;
       object-fit: cover;
       border-radius: 50%;
-      border: 4px solid var(--primary-color);
+      border: 5px solid var(--primary-color);
     }
 
     section {
       padding: 4rem 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
 
@@ -72,16 +66,40 @@
       border: none;
     }
 
-    .btn-darkmode {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.5rem 1rem;
-      background: var(--primary-color);
-      color: var(--bg-color);
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .thumbnail {
+      width: 100%;
+      padding-top: 100%;
+      position: relative;
+      border-radius: 10px;
+    }
+
+    .thumbnail.outline {
+      border: 2px dashed var(--primary-color);
+    }
+
+    .thumbnail.filled {
+      background-color: var(--primary-color);
+    }
+
+    .testimonial-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial {
+      background-color: #f2f2f2;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 0.9rem;
     }
 
     .social-icons {
@@ -101,26 +119,14 @@
     .social-icons img:hover {
       transform: scale(1.1);
     }
-
-    .tagline {
-      font-size: 1.2rem;
-      font-weight: 600;
-      text-align: center;
-      color: var(--primary-color);
-      margin-top: -1rem;
-      margin-bottom: 2rem;
-    }
   </style>
 </head>
 
 <body>
-  <button class="btn-darkmode" onclick="toggleDarkMode()">Dark Mode</button>
-
   <header class="intro" data-aos="fade-down">
     <img src="your-pfp.jpg" alt="Profile Picture">
-    <h1>Hi, I'm Rishu</h1>
-    <p class="tagline">I make moments unforgettable — through cuts, colors, and rhythm.</p>
-    <p>Video Editor | Motion Graphics Specialist</p>
+    <h1><strong>Hi, I'm Rishu</strong></h1>
+    <p>Video Editor / Motion Graphics Specialist</p>
   </header>
 
   <section data-aos="fade-up">
@@ -139,8 +145,27 @@
   </section>
 
   <section data-aos="fade-up">
+    <h2>Thumbnail Designs</h2>
+    <div class="thumbnails">
+      <div class="thumbnail outline"></div>
+      <div class="thumbnail filled"></div>
+      <div class="thumbnail outline"></div>
+      <div class="thumbnail filled"></div>
+    </div>
+  </section>
+
+  <section data-aos="fade-up">
     <h2>Why Hire Me?</h2>
     <p>I don't just edit — I shape stories. My edits are tailored to your brand’s voice and crafted to hook audiences emotionally. You’ll receive timely delivery, transparent communication, and a partner who genuinely cares about your vision.</p>
+    <p><strong>Don't trust me? Hear from them.</strong></p>
+    <div class="videos">
+      <iframe src="https://www.youtube.com/embed/testimonial1" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/testimonial2" allowfullscreen></iframe>
+    </div>
+    <div class="testimonial-section">
+      <div class="testimonial">@client1 – "Absolutely amazing editor! Gave my content life."</div>
+      <div class="testimonial">@client2 – "Fast, friendly, and creative. Highly recommend!"</div>
+    </div>
   </section>
 
   <section data-aos="fade-up">
@@ -156,10 +181,6 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
-
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
   </script>
 </body>
 
