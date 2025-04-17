@@ -34,6 +34,18 @@
       overflow-y: scroll;
     }
 
+    .top-strip {
+      background-color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom: 2px solid var(--primary-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
     header,
     section {
       padding: 2rem;
@@ -77,13 +89,11 @@
     }
 
     .thumbnail {
-      position: relative;
       border-radius: 10px;
       width: 100%;
-      max-width: 100%;
       height: auto;
-      aspect-ratio: 16 / 9;
       min-height: 200px;
+      aspect-ratio: 16 / 9;
     }
 
     .thumbnail.outline {
@@ -150,6 +160,7 @@
 </head>
 
 <body>
+  <div class="top-strip">My Portfolio</div>
   <button class="dark-toggle" onclick="toggleDarkMode()">Dark Mode</button>
 
   <header class="intro" data-aos="fade-down">
