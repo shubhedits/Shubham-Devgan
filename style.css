@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0e1130;
+  color: #f9b84f;
+  line-height: 1.6;
+}
+
+header.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: #0e1130;
+}
+
+.name {
+  font-size: 2.5em;
+  margin: 0;
+  color: white;
+}
+
+.title {
+  font-size: 4em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: #aaa;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.about-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.about-content img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.icons img {
+  width: 80px;
+  height: auto;
+  margin: 10px;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.videos video {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.contact p {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5em;
+  }
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
