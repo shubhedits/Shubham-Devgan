@@ -14,28 +14,11 @@
       --text-color: #000000;
     }
 
-    <style>
-  body.dark {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --primary-color: #ffffff;
-  }
-
-  .dark-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    border: none;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    z-index: 999;
-    transition: background-color 0.3s, color 0.3s;
-  }
-</style>
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --primary-color: #ffffff;
+    }
 
     * {
       margin: 0;
@@ -48,6 +31,7 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
+      overflow-y: scroll;
     }
 
     header {
@@ -99,8 +83,9 @@
       position: relative;
       border-radius: 10px;
       height: auto;
-      aspect-ratio: 16/9;
       width: 100%;
+      max-width: 100%;
+      aspect-ratio: 16/9;
     }
 
     .thumbnail.outline {
@@ -148,10 +133,27 @@
       font-size: 2.5rem;
       font-weight: 700;
     }
+
+    .dark-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--primary-color);
+      color: var(--bg-color);
+      border: none;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      z-index: 999;
+      transition: background-color 0.3s, color 0.3s;
+    }
   </style>
 </head>
 
 <body>
+  <button class="dark-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+
   <header class="intro" data-aos="fade-down">
     <img src="your-pfp.jpg" alt="Profile Picture">
     <h1 class="header-text">Hey, I’m Rishu</h1>
@@ -214,6 +216,12 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+      const btn = document.querySelector(".dark-toggle");
+      btn.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+    }
   </script>
 </body>
 
