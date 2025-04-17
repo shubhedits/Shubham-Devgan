@@ -1,120 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Shubham's Video Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: #f7f7f7;
-      color: #222;
-      scroll-behavior: smooth;
+    :root {
+      --primary: #71C8FF;
+      --light: #ffffff;
+      --dark: #0f0f0f;
     }
 
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    body.dark-mode {
+      background-color: #0f0f0f;
+      color: #f1f1f1;
     }
 
     header {
-      background: #fff;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      background-color: var(--primary);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    .profile-pic {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      overflow: hidden;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-
-    .video {
-      background: #fff;
-      margin: 20px 0;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      border-radius: 12px;
-    }
-
-    .video iframe {
+    .profile-pic img {
       width: 100%;
-      height: 315px;
-      border: none;
-      border-radius: 8px;
+      height: 100%;
+      object-fit: cover;
     }
 
-    footer {
+    .toggle-btn {
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 3rem 2rem;
       text-align: center;
-      padding: 40px 20px;
-      background: #fff;
-      color: #888;
-      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .video-box {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
     }
 
     @media (max-width: 768px) {
-      header h1 {
+      h1 {
         font-size: 2rem;
       }
-
-      .video iframe {
-        height: 200px;
+      iframe {
+        height: 180px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header data-aos="fade-down">
-    <h1>Hi, I'm Rishu</h1>
-    <p>I create story-driven edits & motion graphics that hit hard.</p>
+  <header>
+    <div class="profile-pic" data-aos="fade-right">
+      <!-- Replace src with your profile image -->
+      <img src="your-profile.jpg" alt="My Profile" />
+    </div>
+    <button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
   </header>
 
   <section data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>I’m a passionate video editor with 3+ years of experience in motion graphics, documentary-style cuts, and reel storytelling. My style is clean, emotional, and focused on narrative. Let’s tell stories that matter.</p>
+    <h1>Hello, I'm Rishu</h1>
+    <p>Welcome to my editing portfolio. I craft stories, moods, and motion — one frame at a time. Scroll to see my work.</p>
   </section>
 
   <section data-aos="fade-up">
-    <h2>My Work</h2>
-
-    <div class="video" data-aos="fade-up">
-      <iframe src="https://www.youtube.com/embed/your-video-id1" title="Video 1"></iframe>
+    <h2 style="color: var(--primary);">My Work</h2>
+    <div class="videos">
+      <div class="video-box" data-aos="fade-up">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-box" data-aos="fade-up">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_2" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-box" data-aos="fade-up">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_3" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video-box" data-aos="fade-up">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_4" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
-
-    <div class="video" data-aos="fade-up">
-      <iframe src="https://www.youtube.com/embed/your-video-id2" title="Video 2"></iframe>
-    </div>
-
-    <div class="video" data-aos="fade-up">
-      <iframe src="https://www.youtube.com/embed/your-video-id3" title="Video 3"></iframe>
-    </div>
-
-    <div class="video" data-aos="fade-up">
-      <iframe src="https://www.youtube.com/embed/your-video-id4" title="Video 4"></iframe>
-    </div>
-
   </section>
 
-  <footer data-aos="fade-up">
-    <p>Made with ❤️ by Rishu – 2025</p>
-  </footer>
-
-  <!-- AOS Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    AOS.init();
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
   </script>
 
 </body>
