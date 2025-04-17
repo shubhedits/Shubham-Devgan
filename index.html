@@ -1,238 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-color: #71C8FF;
-      --bg-color: #ffffff;
-      --text-color: #000000;
-    }
-
-    body.dark {
-      --bg-color: #121212;
-      --text-color: #ffffff;
-      --primary-color: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      overflow-y: scroll;
-    }
-
-    .top-strip {
-      background-color: white;
-      padding: 1rem;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      border-bottom: 2px solid var(--primary-color);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    header,
-    section {
-      padding: 2rem;
-      margin: 2rem auto;
-      max-width: 1000px;
-      border: 2px solid var(--primary-color);
-      border-radius: 12px;
-    }
-
-    .intro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .intro img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid var(--primary-color);
-    }
-
-    .videos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    iframe {
-      width: 100%;
-      height: 200px;
-      border: none;
-    }
-
-    .thumbnails {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .thumbnail {
-      border-radius: 10px;
-      width: 100%;
-      height: auto;
-      min-height: 200px;
-      aspect-ratio: 16 / 9;
-    }
-
-    .thumbnail.outline {
-      border: 2px dashed var(--primary-color);
-    }
-
-    .thumbnail.filled {
-      background-color: var(--primary-color);
-    }
-
-    .testimonial-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .testimonial {
-      background-color: #f2f2f2;
-      padding: 1.5rem;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .social-icons img {
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.1);
-    }
-
-    .header-text {
-      font-size: 2.5rem;
-      font-weight: 700;
-    }
-
-    .dark-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background-color: var(--primary-color);
-      color: var(--bg-color);
-      border: none;
-      padding: 0.5rem 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 8px;
-      z-index: 999;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 1rem;
-      color: var(--text-color);
-      border-top: 1px solid var(--primary-color);
-      margin-top: 2rem;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rishu's Portfolio</title>
+  <link href="style.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 </head>
-
 <body>
-  <div class="top-strip">My Portfolio</div>
-  <button class="dark-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+  <div class="top-strip">
+    <span>Rishu's Portfolio</span>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+  </div>
 
   <header class="intro" data-aos="fade-down">
-    <img src="your-pfp.jpg" alt="Profile Picture">
+    <img src="your-pfp.jpg" alt="Profile Picture" />
     <h1 class="header-text">Hey, I’m Rishu</h1>
     <p>Video Editor / Motion Graphics Specialist</p>
   </header>
 
   <section data-aos="fade-up">
     <h2>About Me</h2>
-    <p>I create visually captivating and emotionally engaging edits that breathe life into stories. With over 3 years of experience in motion graphics and documentary editing, I blend creativity with precision to deliver powerful results.</p>
+    <p>
+      I create visually captivating and emotionally engaging edits that breathe life into stories.  
+      With over 3 years of experience in motion graphics and documentary editing, I blend creativity with precision  
+      to deliver powerful results.
+    </p>
   </section>
 
   <section data-aos="fade-up">
     <h2>My Work</h2>
-    <div class="videos">
-      <iframe src="https://www.youtube.com/embed/xyz1" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/xyz2" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/xyz3" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/xyz4" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <section data-aos="fade-up">
-    <h2>Thumbnail Designs</h2>
     <div class="thumbnails">
       <div class="thumbnail outline"></div>
       <div class="thumbnail filled"></div>
       <div class="thumbnail outline"></div>
       <div class="thumbnail filled"></div>
-      <div class="thumbnail outline"></div>
-      <div class="thumbnail filled"></div>
-      <div class="thumbnail outline"></div>
-      <div class="thumbnail filled"></div>
     </div>
   </section>
 
   <section data-aos="fade-up">
-    <h2>Why Hire Me?</h2>
-    <p>I don't just edit — I shape stories. My edits are tailored to your brand’s voice and crafted to hook audiences emotionally. You’ll receive timely delivery, transparent communication, and a partner who genuinely cares about your vision.</p>
-    <p><strong>Don't trust me? Hear from them.</strong></p>
-    <div class="videos">
-      <iframe src="https://www.youtube.com/embed/testimonial1" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/testimonial2" allowfullscreen></iframe>
-    </div>
+    <h2>Testimonials</h2>
     <div class="testimonial-section">
-      <div class="testimonial">@client1 – "Absolutely amazing editor! Gave my content life."</div>
-      <div class="testimonial">@client2 – "Fast, friendly, and creative. Highly recommend!"</div>
+      <div class="testimonial">“Rishu brought our story to life — powerful edits, emotional impact, everything we needed.”</div>
+      <div class="testimonial">“Working with Rishu was smooth, professional, and creative. Highly recommend!”</div>
     </div>
   </section>
 
   <section data-aos="fade-up">
-    <h2>Contact Me</h2>
+    <h2>Connect with Me</h2>
     <div class="social-icons">
-      <a href="https://instagram.com/yourusername" target="_blank"><img src="instagram-logo.png" alt="Instagram"></a>
-      <a href="https://youtube.com/yourchannel" target="_blank"><img src="youtube-logo.png" alt="YouTube"></a>
-      <a href="https://twitter.com/yourhandle" target="_blank"><img src="twitter-logo.png" alt="Twitter"></a>
-      <a href="mailto:youremail@gmail.com"><img src="gmail-logo.png" alt="Gmail"></a>
+      <a href="#"><img src="linkedin-icon.png" alt="LinkedIn" /></a>
+      <a href="#"><img src="youtube-icon.png" alt="YouTube" /></a>
+      <a href="#"><img src="instagram-icon.png" alt="Instagram" /></a>
     </div>
   </section>
 
   <footer class="footer">
-    &copy; 2025 Rishu. All rights reserved.
+    © 2025 Rishu | Built with ❤️
   </footer>
 
-  <script
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
