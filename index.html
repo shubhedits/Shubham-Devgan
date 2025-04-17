@@ -34,9 +34,13 @@
       overflow-y: scroll;
     }
 
-    header {
+    header,
+    section {
       padding: 2rem;
-      text-align: center;
+      margin: 2rem auto;
+      max-width: 1000px;
+      border: 2px solid var(--primary-color);
+      border-radius: 12px;
     }
 
     .intro {
@@ -44,7 +48,6 @@
       flex-direction: column;
       align-items: center;
       gap: 1rem;
-      padding: 4rem 2rem;
     }
 
     .intro img {
@@ -53,12 +56,6 @@
       object-fit: cover;
       border-radius: 50%;
       border: 5px solid var(--primary-color);
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
     }
 
     .videos {
@@ -82,10 +79,11 @@
     .thumbnail {
       position: relative;
       border-radius: 10px;
-      height: auto;
       width: 100%;
       max-width: 100%;
-      aspect-ratio: 16/9;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      min-height: 200px;
     }
 
     .thumbnail.outline {
