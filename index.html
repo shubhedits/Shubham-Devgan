@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shubham Devgan</title>
+  <title>Rishu Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
     :root {
       --primary-color: #71C8FF;
@@ -33,48 +35,40 @@
     }
 
     .top-strip {
+      background-color: #71C8FF;
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: var(--primary-color);
-      padding: 1rem 2rem;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
     }
 
-    .search-box {
+    .search-bar {
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .search-box input {
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-    }
-
-    .search-box button {
-      background-color: #fff;
-      border: none;
+    .search-bar input {
       padding: 0.5rem;
+      border: none;
       border-radius: 5px;
-      cursor: pointer;
+      outline: none;
     }
 
-    .toggle-container {
+    .dark-switch {
       display: flex;
       align-items: center;
+      gap: 0.5rem;
     }
 
     .switch {
       position: relative;
       display: inline-block;
       width: 50px;
-      height: 24px;
+      height: 25px;
     }
 
     .switch input {
@@ -91,63 +85,58 @@
       right: 0;
       bottom: 0;
       background-color: #ccc;
-      transition: .4s;
-      border-radius: 34px;
+      transition: 0.4s;
+      border-radius: 25px;
     }
 
     .slider:before {
       position: absolute;
       content: "";
-      height: 18px;
-      width: 18px;
-      left: 3px;
-      bottom: 3px;
+      height: 21px;
+      width: 21px;
+      left: 2px;
+      bottom: 2px;
       background-color: white;
-      transition: .4s;
+      transition: 0.4s;
       border-radius: 50%;
     }
 
     input:checked + .slider {
-      background-color: #2196F3;
+      background-color: var(--primary-color);
     }
 
     input:checked + .slider:before {
-      transform: translateX(26px);
+      transform: translateX(25px);
     }
 
-    section,
-    header {
-      border: 2px solid var(--primary-color);
-      margin: 2rem auto;
+    header,
+    section {
       padding: 2rem;
-      border-radius: 10px;
+      margin: 2rem auto;
       max-width: 1000px;
+      border: 2px solid var(--primary-color);
+      border-radius: 12px;
     }
 
-    header.intro {
+    .intro {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1rem;
     }
 
-    header img {
+    .intro img {
       width: 250px;
       height: 250px;
-      border-radius: 50%;
       object-fit: cover;
+      border-radius: 50%;
       border: 5px solid var(--primary-color);
-    }
-
-    .header-text {
-      font-size: 2.5rem;
-      font-weight: bold;
     }
 
     .videos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     iframe {
@@ -164,12 +153,8 @@
 
     .thumbnail {
       width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;
-      border: 2px dashed var(--primary-color);
-      border-radius: 10px;
-      background-size: cover;
-      background-position: center;
+      aspect-ratio: 16/9;
+      background-color: #ddd;
     }
 
     .testimonial-section {
@@ -181,62 +166,69 @@
 
     .testimonial {
       background-color: #f2f2f2;
-      color: #000;
       padding: 1.5rem;
       border-radius: 10px;
       text-align: center;
+      font-size: 0.9rem;
     }
 
     .social-icons {
       display: flex;
       justify-content: center;
       gap: 1rem;
+      margin-top: 2rem;
     }
 
     .social-icons img {
       width: 40px;
       height: 40px;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    footer {
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer {
       text-align: center;
       font-size: 0.9rem;
       padding: 1rem;
-      margin-top: 2rem;
+      color: var(--text-color);
       border-top: 1px solid var(--primary-color);
+      margin-top: 2rem;
     }
   </style>
 </head>
 
 <body>
   <div class="top-strip">
-    <div class="search-box">
+    <div class="search-bar">
       <input type="text" placeholder="Search..." />
-      <button><img src="search-icon.png" alt="Search" height="20" /></button>
+      <button>🔍</button>
     </div>
-    <div class="toggle-container">
+    <div class="dark-switch">
       <label class="switch">
-        <input type="checkbox" onclick="toggleDarkMode()" />
+        <input type="checkbox" onclick="toggleDarkMode()">
         <span class="slider"></span>
       </label>
     </div>
   </div>
 
-  <header class="intro">
-    <img src="your-photo.jpg" alt="Profile" />
-    <h1 class="header-text">Hey, I’m Rishu</h1>
+  <header class="intro" data-aos="fade-down">
+    <img src="your-pfp.jpg" alt="Profile Picture" />
+    <h1>Hey, I’m Rishu</h1>
     <p>Video Editor / Motion Graphics Specialist</p>
   </header>
 
-  <section>
+  <section data-aos="fade-up">
     <h2>About Me</h2>
-    <p>I create visually captivating and emotionally engaging edits that breathe life into stories. With over 3 years of experience in motion graphics and documentary editing, I blend creativity with precision to deliver powerful results.</p>
+    <p>I create visually captivating and emotionally engaging edits that breathe life into stories.</p>
   </section>
 
-  <section>
+  <section data-aos="fade-up">
     <h2>My Work</h2>
-    <div class="videos">
+    <div class="videos" data-aos="zoom-in">
       <iframe src="https://www.youtube.com/embed/xyz1" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/xyz2" allowfullscreen></iframe>
       <iframe src="https://www.youtube.com/embed/xyz3" allowfullscreen></iframe>
@@ -244,23 +236,23 @@
     </div>
   </section>
 
-  <section>
+  <section data-aos="fade-up">
     <h2>Thumbnail Designs</h2>
     <div class="thumbnails">
-      <div class="thumbnail" style="background-image: url('thumb1.jpg');"></div>
-      <div class="thumbnail" style="background-image: url('thumb2.jpg');"></div>
-      <div class="thumbnail" style="background-image: url('thumb3.jpg');"></div>
-      <div class="thumbnail" style="background-image: url('thumb4.jpg');"></div>
-      <div class="thumbnail" style="background-image: url('thumb5.jpg');"></div>
-      <div class="thumbnail" style="background-image: url('thumb6.jpg');"></div>
-      <div class="thumbnail" style="background-image: url('thumb7.jpg');"></div>
-      <div class="thumbnail" style="background-image: url('thumb8.jpg');"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
+      <div class="thumbnail" data-aos="fade-up"></div>
     </div>
   </section>
 
-  <section>
+  <section data-aos="fade-up">
     <h2>Why Hire Me?</h2>
-    <p>I don't just edit — I shape stories. My edits are tailored to your brand’s voice and crafted to hook audiences emotionally. You’ll receive timely delivery, transparent communication, and a partner who genuinely cares about your vision.</p>
+    <p>I shape stories that connect. Timely delivery, custom-crafted edits, and smooth communication.</p>
     <p><strong>Don't trust me? Hear from them.</strong></p>
     <div class="videos">
       <iframe src="https://www.youtube.com/embed/testimonial1" allowfullscreen></iframe>
@@ -272,21 +264,26 @@
     </div>
   </section>
 
-  <section>
+  <section data-aos="fade-up">
     <h2>Contact Me</h2>
     <div class="social-icons">
       <a href="https://instagram.com/yourusername" target="_blank"><img src="instagram-logo.png" alt="Instagram" /></a>
       <a href="https://youtube.com/yourchannel" target="_blank"><img src="youtube-logo.png" alt="YouTube" /></a>
       <a href="https://twitter.com/yourhandle" target="_blank"><img src="twitter-logo.png" alt="Twitter" /></a>
-      <a href="mailto:youremail@gmail.com"><img src="gmail-logo.png" alt="Email" /></a>
+      <a href="mailto:youremail@gmail.com"><img src="gmail-logo.png" alt="Gmail" /></a>
     </div>
   </section>
 
-  <footer>
-    &copy; 2025 Rishu. All rights reserved.
-  </footer>
+  <footer class="footer">&copy; 2025 Rishu. All rights reserved.</footer>
 
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
     function toggleDarkMode() {
       document.body.classList.toggle("dark");
     }
