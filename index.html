@@ -1,64 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Video Editor Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="aos/aos.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Shubham's Video Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+      color: #222;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .video {
+      background: #fff;
+      margin: 20px 0;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 12px;
+    }
+
+    .video iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #fff;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .video iframe {
+        height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="hero" data-aos="fade-down">
-    <h1 class="name">Shubham Devgan</h1>
-    <h2 class="title">VIDEO EDITOR</h2>
-    <p class="subtitle">Portfolio 2025</p>
+  <header data-aos="fade-down">
+    <h1>Hi, I'm Rishu</h1>
+    <p>I create story-driven edits & motion graphics that hit hard.</p>
   </header>
 
-  <section class="about" data-aos="fade-up">
-    <h2>ABOUT ME</h2>
-    <div class="about-content">
-      <img src="assets/profile.jpg" alt="Profile Photo">
-      <p>
-        Hi! My name is Shubham Devgan. I started video editing in 2021 and instantly fell in love with it. 
-        What began as a hobby quickly became a passion.
-      </p>
+  <section data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I’m a passionate video editor with 3+ years of experience in motion graphics, documentary-style cuts, and reel storytelling. My style is clean, emotional, and focused on narrative. Let’s tell stories that matter.</p>
+  </section>
+
+  <section data-aos="fade-up">
+    <h2>My Work</h2>
+
+    <div class="video" data-aos="fade-up">
+      <iframe src="https://www.youtube.com/embed/your-video-id1" title="Video 1"></iframe>
     </div>
-  </section>
 
-  <section class="tools" data-aos="fade-up">
-    <h2>TOOLS I USE</h2>
-    <div class="icons">
-      <img src="assets/after effects.png" alt="after effects">
-      <img src="assets/premiere.png" alt="Premiere Pro">
-      <img src="assets/photoshop.png" alt="Photoshop">
-      <img src="assets/adobe ill.png" alt="adobe ill">
+    <div class="video" data-aos="fade-up">
+      <iframe src="https://www.youtube.com/embed/your-video-id2" title="Video 2"></iframe>
     </div>
-  </section>
 
-  <section class="work" data-aos="fade-up">
-    <h2>MY WORK</h2>
-    <div class="videos">
-      <video src="assets/video1.mp4" controls></video>
-      <video src="assets/video2.mp4" controls></video>
-      <video src="assets/video3.mp4" controls></video>
-      <video src="assets/video4.mp4" controls></video>
+    <div class="video" data-aos="fade-up">
+      <iframe src="https://www.youtube.com/embed/your-video-id3" title="Video 3"></iframe>
     </div>
+
+    <div class="video" data-aos="fade-up">
+      <iframe src="https://www.youtube.com/embed/your-video-id4" title="Video 4"></iframe>
+    </div>
+
   </section>
 
-  <section class="contact" data-aos="fade-up">
-    <h2>THANK YOU!</h2>
-    <p>Email: ripsty.works@gmail.com.com</p>
-    <p>Instagram: @guywith_motionsickness</p>
-  </section>
+  <footer data-aos="fade-up">
+    <p>Made with ❤️ by Rishu – 2025</p>
+  </footer>
 
-  <script src="aos/aos.js"></script>
+  <!-- AOS Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 1000,
       once: true
     });
   </script>
+
 </body>
 </html>
